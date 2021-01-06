@@ -165,14 +165,8 @@ function convertAndCopy(filename){
     const ls = spawn('ffmpeg',
         [   '-y',
             '-i "' + copyFrom + '"',
-            '-c:v libx264',
-            '-preset veryfast',
-            '-movflags faststart',
-            '-profile:v high',
-            '-level 4.2',
-            '-max_muxing_queue_size 9999',
-            '-vf mpdecimate',
-            '-vsync vfr "' + copyTo + '"'
+            '-c:v copy',
+            '"' + copyTo + '"'
         ],
         {
             shell: true
