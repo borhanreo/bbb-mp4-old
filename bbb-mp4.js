@@ -11,6 +11,7 @@ const glob = require('glob');
 //Required for S3 upload
 const { exec } = require('child_process');
 var currentId=0;
+var totalId = 0;
 var xvfb        = new Xvfb({
     silent: true,
     timeout: 5000,	
@@ -143,24 +144,22 @@ function main1(){
     // for(i=0;i<=4;i++){
     //     main('a370c0cbed7805985f854defeba03b4001cbc252-1614576527328');
     // }
-    var totalId = 4;
+    
     fs.readdir(recordingDir, (err, files) => {
         files.forEach(file => {
-            if(file.length==54){
-                console.log(file, file.length);
+            if(file.length==54){                
+                totalId++;
             }          
         });
       });
-    var interval = setInterval(function(){ 
-        console.log('Hello World ' + currentId); 
-        if(currentId==totalId){
-            clearInterval(interval);             
-        }
-        currentId++;
-      }, 1000);
-    //   setTimeout(function() { 
-    //     clearInterval(interval); 
-    //   }, 10000);
+      console.log('total ', totalId);
+    // var interval = setInterval(function(){ 
+    //     console.log('Hello World ' + currentId); 
+    //     if(currentId==totalId){
+    //         clearInterval(interval);             
+    //     }
+    //     currentId++;
+    //   }, 1000);
     
 }
 
