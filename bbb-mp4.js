@@ -42,7 +42,7 @@ if(platform == "linux"){
     options.executablePath = "/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome";
 }
 
-async function main() {
+async function main(id) {
     let browser, page;
 
     try{
@@ -51,8 +51,8 @@ async function main() {
         }
 
 
-	var meetingId = process.argv[2];
-	
+	//var meetingId = process.argv[2];
+	var meetingId = id;
 	var url = playBackURL + meetingId;	   
 	
 	console.log("Fetching: " + url);
@@ -139,8 +139,11 @@ async function main() {
         xvfb.stopSync()
     }
 }
+function main1(){
+    main('a370c0cbed7805985f854defeba03b4001cbc252-1614576527328');
+}
 
-main()
+main1()
 
 function convertAndCopy(filename){
 
