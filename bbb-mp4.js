@@ -145,7 +145,7 @@ function main1(){
     //     main('a370c0cbed7805985f854defeba03b4001cbc252-1614576527328');
     // }
     
-    fs.readdir(recordingDir, (err, files) => {
+    await fs.readdir(recordingDir, (err, files) => {
         files.forEach(file => {
             if(file.length==54){
                 console.log('total ', file);                
