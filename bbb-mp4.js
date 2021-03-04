@@ -140,9 +140,15 @@ async function main(id) {
     }
 }
 function main1(){
-    for(i=0;i<=4;i++){
-        main('a370c0cbed7805985f854defeba03b4001cbc252-1614576527328');
-    }
+    // for(i=0;i<=4;i++){
+    //     main('a370c0cbed7805985f854defeba03b4001cbc252-1614576527328');
+    // }
+    var interval = setInterval(function(){ 
+        console.log('Hello World'); 
+      }, 2000);
+      setTimeout(function() { 
+        clearInterval(interval); 
+      }, 10000);
     
 }
 
