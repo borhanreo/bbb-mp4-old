@@ -140,7 +140,10 @@ async function main(id) {
     }
 }
 function main1(){
-    main('a370c0cbed7805985f854defeba03b4001cbc252-1614576527328');
+    for(i=0;i<=4;i++){
+        main('a370c0cbed7805985f854defeba03b4001cbc252-1614576527328');
+    }
+    
 }
 
 main1()
