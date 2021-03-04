@@ -4,7 +4,7 @@ const fs = require('fs');
 const os = require('os');
 const homedir = os.homedir();
 const platform = os.platform();
-const { copyToPath, copyFromPath, playBackURL, S3BucketName, uploadMP4ToS3 } = require('./env');
+const { copyToPath, copyFromPath, playBackURL, S3BucketName, uploadMP4ToS3, recordingDir } = require('./env');
 const spawn = require('child_process').spawn;
 //Required to find the latest file (downloaded webm) in a directory
 const glob = require('glob');
@@ -144,7 +144,7 @@ function main1(){
     //     main('a370c0cbed7805985f854defeba03b4001cbc252-1614576527328');
     // }
     var totalId = 4;
-    fs.readdir(copyFromPath, (err, files) => {
+    fs.readdir(recordingDir, (err, files) => {
         files.forEach(file => {
           console.log(file);
         });
