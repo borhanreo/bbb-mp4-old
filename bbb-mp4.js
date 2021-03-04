@@ -146,7 +146,7 @@ function main1(){
     var totalId = 4;
     fs.readdir(recordingDir, (err, files) => {
         files.forEach(file => {
-          console.log(file.length());
+          console.log(file, file.length);
         });
       });
     var interval = setInterval(function(){ 
