@@ -147,7 +147,8 @@ function main1(){
     
     fs.readdir(recordingDir, (err, files) => {
         files.forEach(file => {
-            if(file.length==54){                
+            if(file.length==54){
+                console.log('total ', file);                
                 totalId++;
             }          
         });
