@@ -11,6 +11,7 @@ const glob = require('glob');
 //Required for S3 upload
 const { exec } = require('child_process');
 var currentId=0;
+const fs = require('fs');
 var xvfb        = new Xvfb({
     silent: true,
     timeout: 5000,	
@@ -144,6 +145,11 @@ function main1(){
     //     main('a370c0cbed7805985f854defeba03b4001cbc252-1614576527328');
     // }
     var totalId = 4;
+    fs.readdir(copyFromPath, (err, files) => {
+        files.forEach(file => {
+          console.log(file);
+        });
+      });
     var interval = setInterval(function(){ 
         console.log('Hello World ' + currentId); 
         if(currentId==totalId){
