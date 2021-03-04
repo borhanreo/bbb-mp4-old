@@ -11,7 +11,6 @@ const glob = require('glob');
 //Required for S3 upload
 const { exec } = require('child_process');
 var currentId=0;
-const fs = require('fs');
 var xvfb        = new Xvfb({
     silent: true,
     timeout: 5000,	
