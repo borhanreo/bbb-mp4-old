@@ -140,7 +140,7 @@ async function main(id) {
         xvfb.stopSync()
     }
 }
-function main1(){
+async function main1(){
     // for(i=0;i<=4;i++){
     //     main('a370c0cbed7805985f854defeba03b4001cbc252-1614576527328');
     // }
