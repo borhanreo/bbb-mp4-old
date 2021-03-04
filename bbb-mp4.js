@@ -147,9 +147,9 @@ function main1(){
     var interval = setInterval(function(){ 
         console.log('Hello World ' + currentId); 
         if(currentId==totalId){
-            clearInterval(interval); 
-            currentId++;
+            clearInterval(interval);             
         }
+        currentId++;
       }, 1000);
     //   setTimeout(function() { 
     //     clearInterval(interval); 
