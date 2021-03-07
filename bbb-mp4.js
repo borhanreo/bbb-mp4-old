@@ -97,7 +97,8 @@ async function main(id) {
     });
     if(loadMsg == "Recording not found"){
         console.warn("Recording not found!");
-        process.exit(1);
+        //process.exit(1);
+        updateValue();
     }
 
     // Get recording duration
@@ -174,7 +175,7 @@ function main1(){
             }else{   
                 //console.log(completedIdStatusMap['currentIdStatus']+'  '+completedIdMap)             
                 if(completedIdStatusMap.get('currentIdStatus')==true){
-                    console.log('new start..'+totalRecMap.get(currentId+1) ); 
+                    console.log('new start..'+totalRecMap.get(currentId+1)); 
                     runningIdCounter=1; 
                     completedIdStatusMap.set('currentIdStatus', false);
                     main(totalRecMap.get(currentId+1));
