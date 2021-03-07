@@ -165,16 +165,14 @@ function main1(){
         });
         console.log('total ', totalId);
         console.log('total ',totalRecMap.size+' '+ totalRecMap.get(1));
-        // var interval = setInterval(function(){             
-        //     if(map['currentId']==totalId){
-        //         clearInterval(interval);             
-        //     }else{
-        //         if(map['currentIdStatus']==true){
-
-        //         }
-        //     }
-            
-        // }, 1000);
+        var interval = setInterval(function(){             
+            if(CurrentIdMap['currentId']==totalId){
+                clearInterval(interval); 
+                console.log('completed ');            
+            }else{
+                console.log('continue.. ');
+            }                                        
+        }, 1000);
       });
 
     //   var interval = setInterval(function(){ 
