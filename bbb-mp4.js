@@ -153,13 +153,14 @@ function main1(){
     // for(i=0;i<=4;i++){
     //     main('a370c0cbed7805985f854defeba03b4001cbc252-1614576527328');
     // }
-    
+    var i=0;
     fs.readdir(recordingDir, (err, files) => {
         files.forEach(file => {
             if(file.length==54){
                 console.log('total ', file); 
-                totalRecMap.set(file);               
+                totalRecMap.set(i,file);               
                 totalId++;
+                i++;
             }          
         });
         console.log('total ', totalId);
