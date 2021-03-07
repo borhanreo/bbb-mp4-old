@@ -178,12 +178,7 @@ function main1(){
                     console.log('new start..'+totalRecMap.get(currentId+1)); 
                     runningIdCounter=1; 
                     completedIdStatusMap.set('currentIdStatus', false);
-                    if(totalRecMap.get(currentId+1)!='undefined'){
-                        //clearInterval(interval); 
-                        //console.log('completed ');
-                    }else{
-                        main(totalRecMap.get(currentId+1));
-                    }
+                    main(totalRecMap.get(currentId+1));
                     
                 }else{
                     
