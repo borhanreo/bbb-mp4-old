@@ -155,7 +155,7 @@ function main1(){
     //     main('a370c0cbed7805985f854defeba03b4001cbc252-1614576527328');
     // }
     var i=0;
-    var runningId;
+    var runningIdCounter=0;
     fs.readdir(recordingDir, (err, files) => {
         files.forEach(file => {
             if(file.length==54){
@@ -173,11 +173,16 @@ function main1(){
                 console.log('completed ');            
             }else{                
                 if(completedIdStatusMap['currentIdStatus']==true){
-                    console.log('new start..'+totalRecMap.get(currentId+1) );  
+                    console.log('new start..'+totalRecMap.get(currentId+1) ); 
+                    runningIdCounter=0; 
                     completedIdStatusMap.set('currentIdStatus', false);
                     main(totalRecMap.get(currentId+1));
                 }else{
                     console.log('continue..'+totalRecMap.get(currentId));
+                    if(runningIdCounter==0){
+                        main(totalRecMap.get(currentId));
+                    }                                        
+                    
                 }
             }                                        
         }, 1000);
