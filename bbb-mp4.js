@@ -158,7 +158,7 @@ function main1(){
         files.forEach(file => {
             if(file.length==54){
                 console.log('total ', file); 
-                totalRecMap.set(file);               
+                totalRecMap.set(i,file);               
                 totalId++;
                 i++;
             }          
