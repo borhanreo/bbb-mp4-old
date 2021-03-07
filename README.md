@@ -190,3 +190,6 @@ bbb-mp4 app builds on the ideas from several other projects, especially:
 [Canvas-Streaming-Example](https://github.com/fbsamples/Canvas-Streaming-Example)
 
 [bbb-recorder](https://github.com/jibon57/bbb-recorder)
+
+
+CRONTAB run run.sh
