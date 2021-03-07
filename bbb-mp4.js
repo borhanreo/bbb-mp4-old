@@ -141,6 +141,7 @@ async function main(id) {
     }
 }
 function main1(){
+    //https://calculator.aws/#/estimate?id=d47f237018ac7b34495775862bb12663b92002d1
     // for(i=0;i<=4;i++){
     //     main('a370c0cbed7805985f854defeba03b4001cbc252-1614576527328');
     // }
@@ -153,15 +154,16 @@ function main1(){
             }          
         });
         console.log('total ', totalId);
+        
+        var interval = setInterval(function(){ 
+            console.log('Hello World ' + currentId); 
+            if(currentId==totalId){
+                clearInterval(interval);             
+            }
+            currentId++;
+        }, 1000);
       });
       
-    // var interval = setInterval(function(){ 
-    //     console.log('Hello World ' + currentId); 
-    //     if(currentId==totalId){
-    //         clearInterval(interval);             
-    //     }
-    //     currentId++;
-    //   }, 1000);
     
 }
 
