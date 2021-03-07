@@ -153,6 +153,7 @@ function updateValue(){
 function deleteMp4(id){
     try {
         fs.unlinkSync(copyToPath+'/'+id);
+        console.log('mp4 file deleted '+id);
         //file removed
       } catch(err) {
         console.error(err)
