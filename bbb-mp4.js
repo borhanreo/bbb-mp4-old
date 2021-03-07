@@ -12,6 +12,9 @@ const glob = require('glob');
 const { exec } = require('child_process');
 var currentId=0;
 var totalId = 0;
+var CurrentIdMap = new Map;
+var completedIdMap = new Map;
+var totalRecMap = new Map;
 var xvfb        = new Xvfb({
     silent: true,
     timeout: 5000,	
@@ -140,6 +143,11 @@ async function main(id) {
         xvfb.stopSync()
     }
 }
+function updateValue(){
+    myMap.set('currentId', currentId);
+    myMap.set('currentIdStatus', true);
+    currentId++;
+}
 function main1(){
     //https://calculator.aws/#/estimate?id=d47f237018ac7b34495775862bb12663b92002d1
     // for(i=0;i<=4;i++){
@@ -149,21 +157,32 @@ function main1(){
     fs.readdir(recordingDir, (err, files) => {
         files.forEach(file => {
             if(file.length==54){
-                console.log('total ', file);                
+                console.log('total ', file); 
+                totalRecMap.set(file);               
                 totalId++;
             }          
         });
         console.log('total ', totalId);
         
-        var interval = setInterval(function(){ 
-            console.log('Hello World ' + currentId); 
-            if(currentId==totalId){
-                clearInterval(interval);             
-            }
-            currentId++;
-        }, 1000);
+        // var interval = setInterval(function(){             
+        //     if(map['currentId']==totalId){
+        //         clearInterval(interval);             
+        //     }else{
+        //         if(map['currentIdStatus']==true){
+
+        //         }
+        //     }
+            
+        // }, 1000);
       });
-      
+
+    //   var interval = setInterval(function(){ 
+    //     console.log('Hello World ' + currentId); 
+    //     if(currentId==totalId){
+    //         clearInterval(interval);             
+    //     }
+        
+    // }, 1000);
     
 }
 
@@ -238,6 +257,7 @@ function uploadToS3(fileName) {
       // the *entire* stdout and stderr (buffered)
       console.log(`stdout: ${stdout}`);
       console.log(`stderr: ${stderr}`);
+      updateValue();
     }
   });
 }
