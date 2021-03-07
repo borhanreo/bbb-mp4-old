@@ -145,9 +145,7 @@ async function main(id) {
         xvfb.stopSync()
     }
 }
-function updateValue(){
-    CurrentIdMap.set('currentId', currentId);
-    completedIdStatusMap.set('currentIdStatus', true);
+function updateValue(){    
     deleteMp4(currentId);
 }
 function deleteMp4(id){
@@ -158,6 +156,9 @@ function deleteMp4(id){
       } catch(err) {
         console.error(err)
       }
+      
+      CurrentIdMap.set('currentId', currentId);
+      completedIdStatusMap.set('currentIdStatus', true);
       currentId++;
 }
 function main1(){
