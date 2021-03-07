@@ -144,9 +144,9 @@ async function main(id) {
     }
 }
 function updateValue(){
-    myMap.set('currentId', currentId);
-    myMap.set('currentIdStatus', true);
-    currentId++;
+    // myMap.set('currentId', currentId);
+    // myMap.set('currentIdStatus', true);
+    // currentId++;
 }
 function main1(){
     //https://calculator.aws/#/estimate?id=d47f237018ac7b34495775862bb12663b92002d1
@@ -158,13 +158,13 @@ function main1(){
         files.forEach(file => {
             if(file.length==54){
                 console.log('total ', file); 
-                totalRecMap.set(i,file);               
+                totalRecMap.set(''+i+'',file);               
                 totalId++;
                 i++;
             }          
         });
         console.log('total ', totalId);
-        console.log('total ', totalRecMap.get[0]);
+        console.log('total ', totalRecMap.get['1']);
         // var interval = setInterval(function(){             
         //     if(map['currentId']==totalId){
         //         clearInterval(interval);             
