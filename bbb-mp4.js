@@ -167,7 +167,7 @@ function main1(){
             }          
         });
         console.log('total ', totalId);
-        console.log('total ',totalRecMap.size+' '+ totalRecMap.get(1));
+        //console.log('total ',totalRecMap.size+' '+ totalRecMap.get(1));
         var interval = setInterval(function(){                         
             if(CurrentIdMap['currentId']==totalId-1){
                 clearInterval(interval); 
@@ -179,8 +179,8 @@ function main1(){
                     runningIdCounter=1; 
                     completedIdStatusMap.set('currentIdStatus', false);
                     if(totalRecMap.get(currentId+1)!='undefined'){
-                        clearInterval(interval); 
-                        console.log('completed ');
+                        //clearInterval(interval); 
+                        //console.log('completed ');
                     }else{
                         main(totalRecMap.get(currentId+1));
                     }
