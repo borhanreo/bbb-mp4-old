@@ -169,7 +169,7 @@ function main1(){
         console.log('total ', totalId);
         console.log('total ',totalRecMap.size+' '+ totalRecMap.get(1));
         var interval = setInterval(function(){                         
-            if(CurrentIdMap['currentId']==totalId){
+            if(CurrentIdMap['currentId']==totalId-1){
                 clearInterval(interval); 
                 console.log('completed ');            
             }else{   
