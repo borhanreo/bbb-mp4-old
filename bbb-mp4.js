@@ -175,7 +175,7 @@ function main1(){
                 //console.log(completedIdStatusMap['currentIdStatus']+'  '+completedIdMap)             
                 if(completedIdStatusMap.get('currentIdStatus')==true){
                     console.log('new start..'+totalRecMap.get(currentId+1) ); 
-                    runningIdCounter=0; 
+                    runningIdCounter=1; 
                     completedIdStatusMap.set('currentIdStatus', false);
                     main(totalRecMap.get(currentId+1));
                 }else{
