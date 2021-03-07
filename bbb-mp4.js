@@ -163,7 +163,7 @@ function main1(){
             }          
         });
         console.log('total ', totalId);
-        
+        console.log('total ', totalRecMap[0]);
         // var interval = setInterval(function(){             
         //     if(map['currentId']==totalId){
         //         clearInterval(interval);             
