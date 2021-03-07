@@ -1,0 +1,20 @@
+BBBMP4Dir=/root/bbb-mp4-old/
+copyToPath=/root/bbb-mp4-old/mp4/
+copyFromPath=/root/bbb-mp4-old/webm
+#recordingDir=/var/bigbluebutton/published/presentation/
+recordingDir=/var/bigbluebutton/
+# Whether mp4 recordings should be uploaded to AWS S3
+uploadMP4ToS3=true
+# Name of the AWS S3 bucket where mp4 recordings will be uploaded
+S3BucketName=classroom-recording
+# BigBlueButton default playback url
+playBackURL=https://classlite.classroom.com.bd/playback/presentation/2.0/playback.html?meetingId=
+# Which playback version to use.
+# 20 - this is the default playback
+# 23 - this is the new and better playback version. Install bbb-playback for this to work: https://github.com/bigbluebutton/bbb-play$
+playBackVersion=23
+# Domain name of BigBlueButton server
+bbbDomain=classlite.classroom.com.bd
+# Customize what to show in MP4 video
+# media: Show only webcam in MP4, content: Show only presentation in MP4, default: Show webcam, presentation and chat in MP4
+playBackType=default
