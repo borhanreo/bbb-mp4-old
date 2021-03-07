@@ -150,7 +150,7 @@ function updateValue(){
 }
 function deleteMp4(id){
     try {
-        fs.unlinkSync(copyToPath+totalRecMap.get(currentId));
+        fs.unlinkSync(copyToPath+totalRecMap.get(currentId)+'.mp4');
         console.log('mp4 file deleted '+id);
         //file removed
       } catch(err) {
