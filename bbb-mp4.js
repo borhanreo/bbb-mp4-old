@@ -164,7 +164,7 @@ function main1(){
             }          
         });
         console.log('total ', totalId);
-        console.log('total ', totalRecMap.get['1']);
+        console.log('total ',totalRecMap.size+' '+ totalRecMap.get['1']);
         // var interval = setInterval(function(){             
         //     if(map['currentId']==totalId){
         //         clearInterval(interval);             
