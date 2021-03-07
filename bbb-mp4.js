@@ -148,7 +148,16 @@ async function main(id) {
 function updateValue(){
     CurrentIdMap.set('currentId', currentId);
     completedIdStatusMap.set('currentIdStatus', true);
-    currentId++;
+    deleteMp4(currentId);
+}
+function deleteMp4(id){
+    try {
+        fs.unlinkSync(copyToPath+'/'+id);
+        //file removed
+      } catch(err) {
+        console.error(err)
+      }
+      currentId++;
 }
 function main1(){
     //https://calculator.aws/#/estimate?id=d47f237018ac7b34495775862bb12663b92002d1
