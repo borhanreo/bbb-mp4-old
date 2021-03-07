@@ -180,9 +180,9 @@ function main1(){
                 }else{
                     console.log('continue..'+totalRecMap.get(currentId));
                     if(runningIdCounter==0){
-                        main(totalRecMap.get(currentId));
+                        main(totalRecMap.get(currentId));                        
                     }                                        
-                    
+                    runningIdCounter++;
                 }
             }                                        
         }, 1000);
