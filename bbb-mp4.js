@@ -169,23 +169,23 @@ function main1(){
         console.log('total ', totalId);
         //console.log('total ',totalRecMap.size+' '+ totalRecMap.get(1));
         var interval = setInterval(function(){                         
-            if(CurrentIdMap['currentId']==totalId-1){
+            if(CurrentIdMap.get('currentId')==totalId-1){
                 clearInterval(interval); 
                 console.log('completed ');            
             }else{   
                 //console.log(completedIdStatusMap['currentIdStatus']+'  '+completedIdMap)             
                 if(completedIdStatusMap.get('currentIdStatus')==true){
-                    console.log('new start..'+totalRecMap.get(currentId+1)); 
+                    console.log('######### new start..'+totalRecMap.get(currentId+1)); 
                     runningIdCounter=1; 
                     completedIdStatusMap.set('currentIdStatus', false);
-                    main(totalRecMap.get(currentId+1));
-                    
+                    main(totalRecMap.get(currentId+1));                    
                 }else{
                     
                     if(runningIdCounter==0){
-                        main(totalRecMap.get(currentId));                        
+                        main(totalRecMap.get(currentId));
+                        console.log('######## Start ..'+totalRecMap.get(currentId));                        
                     }
-                    console.log('continue..'+totalRecMap.get(currentId));                                        
+                                                            
                     runningIdCounter++;
                 }
             }                                        
