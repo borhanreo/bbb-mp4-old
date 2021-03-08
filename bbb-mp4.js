@@ -197,13 +197,14 @@ function main1(){
                     console.log('######### new start..'+totalRecMap.get(currentId+1)); 
                     runningIdCounter=1; 
                     completedIdStatusMap.set('currentIdStatus', false);
-                    main(totalRecMap.get(currentId+1));                    
+                    //main(totalRecMap.get(currentId+1));       
+                    databasesPortionSelect(totalRecMap.get(currentId),currentId+1);             
                 }else{
                     
                     if(runningIdCounter==0){
-                        databasesPortionSelect(totalRecMap.get(currentId));
-                        main(totalRecMap.get(currentId));
-                        console.log('######## Start ..'+totalRecMap.get(currentId));                        
+                        databasesPortionSelect(totalRecMap.get(currentId),currentId);
+                        //main(totalRecMap.get(currentId));
+                        //console.log('######## Start ..'+totalRecMap.get(currentId));                        
                     }
                                                             
                     runningIdCounter++;
@@ -213,7 +214,7 @@ function main1(){
       });
     
 }
-function databasesPortionSelect(rec_id){
+function databasesPortionSelect(rec_id, activeId){
     con.connect(function(err) {
         if (err) throw err;
         con.query("SELECT rec_id FROM tbl_record WHERE rec_id = '"+rec_id+"'", function (err, result) {
@@ -221,8 +222,10 @@ function databasesPortionSelect(rec_id){
             console.log(result);
             if(result.length>0){
                 console.log('row has ');
+                updateValue();
             }else{
                 console.log('row no');
+                main(totalRecMap.get(activeId));
             }
         });
       });
