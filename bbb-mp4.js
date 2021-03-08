@@ -211,42 +211,40 @@ function main1(){
     
 }
 function databasesPortion(){
-    
-      
       con.connect(function(err) {
-        if (err) console.log('err '+err);throw err;
+        if (err) throw err;
         console.log("Connected!");
         con.query("CREATE DATABASE record", function (err, result) {
             if (err){
-                //console.log("failed to create "+err);
-                if(err.code=='ER_DB_CREATE_EXISTS'){
-                    var sql = "CREATE TABLE tbl_record (id VARCHAR(255), rec_id VARCHAR(255))";
-                    con.query(sql, function (err, result) {
-                        if (err){ 
-                            if(err.code=='ER_DB_CREATE_EXISTS'){
-                                console.log("Table already ");
-                                main1();
-                            }
-                        }else{ 
-                            console.log("Table new created");
-                            main1();
-                        }
-                    });
-                }
-                //throw err;
+                console.log("failed to create "+err);
+                // if(err.code=='ER_DB_CREATE_EXISTS'){
+                //     var sql = "CREATE TABLE tbl_record (id VARCHAR(255), rec_id VARCHAR(255))";
+                //     con.query(sql, function (err, result) {
+                //         if (err){ 
+                //             if(err.code=='ER_DB_CREATE_EXISTS'){
+                //                 console.log("Table already ");
+                //                 main1();
+                //             }
+                //         }else{ 
+                //             console.log("Table new created");
+                //             main1();
+                //         }
+                //     });
+                // }
+                throw err;
             }else{
                 console.log("Database created ");
-                var sql = "CREATE TABLE tbl_record (id VARCHAR(255), rec_id VARCHAR(255))";
-                con.query(sql, function (err, result) {
-                if (err){ 
-                    if(err.code=='ER_DB_CREATE_EXISTS'){
-                        console.log("Table already ");
-                        main1();
-                    }
-                }else{ 
-                    console.log("Table new created");
-                }    
-                });
+                // var sql = "CREATE TABLE tbl_record (id VARCHAR(255), rec_id VARCHAR(255))";
+                // con.query(sql, function (err, result) {
+                // if (err){ 
+                //     if(err.code=='ER_DB_CREATE_EXISTS'){
+                //         console.log("Table already ");
+                //         main1();
+                //     }
+                // }else{ 
+                //     console.log("Table new created");
+                // }    
+                // });
             }
           });          
       });
