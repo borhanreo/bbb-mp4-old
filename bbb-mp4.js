@@ -266,10 +266,9 @@ function databasesPortionNew(){
       });
 }
 
-//main1()
+main1()
 //run
-//databasesPortion(); 
-databasesPortionNew();
+//databasesPortionNew();
 function convertAndCopy(filename){
 
     console.log("Starting conversion ...");
