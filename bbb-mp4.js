@@ -200,6 +200,7 @@ function main1(){
                 }else{
                     
                     if(runningIdCounter==0){
+                        databasesPortionSelect(totalRecMap.get(currentId));
                         main(totalRecMap.get(currentId));
                         console.log('######## Start ..'+totalRecMap.get(currentId));                        
                     }
@@ -211,25 +212,32 @@ function main1(){
       });
     
 }
-function databasesPortion(){
-    var sql = "CREATE TABLE tbl_record (id VARCHAR(255), rec_id VARCHAR(255))";
-                    con.query(sql, function (err, result) {
-                        if (err){ 
-                            if(err.code=='ER_DB_CREATE_EXISTS'){
-                                console.log("Table already ");
-                                main1();
-                            }
-                        }else{ 
-                            console.log("Table new created");
-                            main1();
-                        }
-                    });
+function databasesPortionSelect(rec_id){
+    con.connect(function(err) {
+        if (err) throw err;
+        con.query("SELECT count(rec_id) FROM tbl_record WHERE rec_id = '"+rec_id+"'", function (err, result) {
+          if (err) throw err;
+          console.log(result);
+
+        });
+      });
+}
+function databasesPortionInsert(rec_id){
+    con.connect(function(err) {
+        if (err) throw err;
+        console.log("Connected!");
+        var sql = "INSERT INTO tbl_record (rec_id) VALUES ('"+rec_id+"')";
+        con.query(sql, function (err, result) {
+          if (err) throw err;
+          console.log("1 record inserted");
+        });
+      });
 }
 function databasesPortionNew(){
       con.connect(function(err) {
         if (err) throw err;
         console.log("Connected!");
-        var sql = "CREATE TABLE tbl_record (id VARCHAR(255), rec_id VARCHAR(255))";
+        var sql = "CREATE TABLE tbl_record (int NOT NULL AUTO_INCREMENT, rec_id VARCHAR(255))";
         con.query(sql, function (err, result) {
               if (err){ 
                 console.log("failed to create "+err);
@@ -241,8 +249,10 @@ function databasesPortionNew(){
       });
 }
 
-//main1()
-databasesPortionNew();
+main1()
+//run
+databasesPortion(); 
+//databasesPortionNew();
 function convertAndCopy(filename){
 
     console.log("Starting conversion ...");
