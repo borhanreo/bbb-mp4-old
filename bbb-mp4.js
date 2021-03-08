@@ -15,6 +15,7 @@ var totalId = 0;
 var CurrentIdMap = new Map;
 var completedIdMap = new Map;
 var completedIdStatusMap = new Map;
+var mysql = require('mysql');
 var totalRecMap = new Map;
 var xvfb        = new Xvfb({
     silent: true,
@@ -151,7 +152,7 @@ function updateValue(){
 function deleteMp4(id){
     try {
         fs.unlinkSync(copyToPath+totalRecMap.get(currentId)+'.mp4');
-        console.log('mp4 file deleted '+id);
+        console.log('mp4 file deleted '+copyToPath+totalRecMap.get(currentId)+'.mp4');
         //file removed
       } catch(err) {
         console.error(err)
@@ -202,17 +203,18 @@ function main1(){
             }                                        
         }, 1000);
       });
-
-    //   var interval = setInterval(function(){ 
-    //     console.log('Hello World ' + currentId); 
-    //     if(currentId==totalId){
-    //         clearInterval(interval);             
-    //     }
-        
-    // }, 1000);
     
 }
-
+var con = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "admin"
+  });
+  
+  con.connect(function(err) {
+    if (err) throw err;
+    console.log("Connected!");
+  });
 main1()
 
 function convertAndCopy(filename){
