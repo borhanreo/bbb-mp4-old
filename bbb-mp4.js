@@ -217,7 +217,10 @@ var con = mysql.createConnection({
     con.query("CREATE DATABASE record", function (err, result) {
         if (err){
             //console.log("failed to create "+err);
-            throw err;
+            if(err.code=='ER_DB_CREATE_EXISTS'){
+                continue;
+            }
+            //throw err;
         }else{
             console.log("Database created ");
         }
