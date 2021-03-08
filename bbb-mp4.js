@@ -158,8 +158,8 @@ async function main(id) {
         xvfb.stopSync()
     }
 }
-function updateValue(){    
-    deleteMp4(currentId);
+function updateValue(){        
+    databasesPortionInsert(totalRecMap.get(currentId), last_id);
 }
 function deleteMp4(id){
     try {
@@ -235,14 +235,14 @@ function databasesPortionSelect(rec_id, activeId){
           });
     });
 }
-function databasesPortionInsert(rec_id){
-    con.connect(function(err) {
-        if (err) throw err;
+function databasesPortionInsert(rec_id,last_id){
+    con.getConnection(function (err, connection) {
         console.log("Connected!");
         var sql = "INSERT INTO tbl_record (rec_id) VALUES ('"+rec_id+"')";
         con.query(sql, function (err, result) {
           if (err) throw err;
           console.log("1 record inserted");
+          deleteMp4(last_id);
         });
       });
 }
