@@ -214,7 +214,7 @@ function databasesPortion(){
     
       
       con.connect(function(err) {
-        if (err) throw err;
+        if (err) console.log('err '+err);throw err;
         console.log("Connected!");
         con.query("CREATE DATABASE record", function (err, result) {
             if (err){
