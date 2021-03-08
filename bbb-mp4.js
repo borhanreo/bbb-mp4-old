@@ -229,6 +229,7 @@ function databasesPortionSelect(rec_id, activeId){
             }
         });
       });
+      con.end()
 }
 function databasesPortionInsert(rec_id){
     con.connect(function(err) {
