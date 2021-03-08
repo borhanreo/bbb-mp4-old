@@ -249,7 +249,7 @@ var con = mysql.createConnection({
       });          
   });
 //main1()
-databasesPortion();
+//databasesPortion();
 function convertAndCopy(filename){
 
     console.log("Starting conversion ...");
