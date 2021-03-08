@@ -193,3 +193,15 @@ bbb-mp4 app builds on the ideas from several other projects, especially:
 
 
 CRONTAB run run.sh  
+
+ ```https://github.com/borhanreo/bbb-mp4-old.git ```
+ ```cd bbb-mp4-old```
+
+ #mysql istall
+ ```mysql -u root -p```
+ #create database record
+ ```create database record```
+ 
+ frist comment main1() function and uncomment databasesPortionNew(). it only for ontime
+
+ then again run main1();
