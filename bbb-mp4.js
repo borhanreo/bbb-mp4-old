@@ -10,6 +10,7 @@ const spawn = require('child_process').spawn;
 const glob = require('glob');
 //Required for S3 upload
 const { exec } = require('child_process');
+const cron = require("node-cron"); 
 var currentId=0;
 var totalId = 0;
 var CurrentIdMap = new Map;
@@ -162,7 +163,7 @@ function updateValue(){
     databasesPortionInsert(totalRecMap.get(currentId), currentId);
 }
 function updateValueWithout(){
-    CurrentIdMap.set('currentId', currentId);
+      CurrentIdMap.set('currentId', currentId);
       completedIdStatusMap.set('currentIdStatus', true);
       currentId++;
 }
@@ -265,8 +266,11 @@ function databasesPortionNew(){
           });            
       });
 }
-
-main1()
+cron.schedule("*/59 * * * * *", function() { 
+    console.log("running a task every 59 second"); 
+    main1();
+}); 
+//main1()
 //run
 //databasesPortionNew();
 function convertAndCopy(filename){
