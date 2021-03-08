@@ -252,7 +252,7 @@ function databasesPortionInsert(rec_id,last_id){
       });
 }
 function databasesPortionNew(){
-      con.connect(function(err) {
+    con.getConnection(function (err, connection) {
         if (err) throw err;
         console.log("Connected!");
         var sql = "CREATE TABLE tbl_record (int NOT NULL AUTO_INCREMENT, rec_id VARCHAR(255))";
