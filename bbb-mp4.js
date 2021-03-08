@@ -216,10 +216,10 @@ function main1(){
 function databasesPortionSelect(rec_id){
     con.connect(function(err) {
         if (err) throw err;
-        con.query("SELECT count(rec_id) FROM tbl_record WHERE rec_id = '"+rec_id+"'", function (err, result) {
+        con.query("SELECT rec_id FROM tbl_record WHERE rec_id = '"+rec_id+"'", function (err, result) {
           if (err) throw err;
             console.log(result);
-            if(rec_id[0]>0){
+            if(result.length>0){
                 console.log('row has ');
             }else{
                 console.log('row no');
