@@ -217,8 +217,12 @@ function databasesPortionSelect(rec_id){
         if (err) throw err;
         con.query("SELECT count(rec_id) FROM tbl_record WHERE rec_id = '"+rec_id+"'", function (err, result) {
           if (err) throw err;
-          console.log(result);
-
+            console.log(result);
+            if(rec_id[0]>0){
+                console.log('row has ');
+            }else{
+                console.log('row no');
+            }
         });
       });
 }
