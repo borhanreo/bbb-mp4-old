@@ -237,7 +237,7 @@ function databasesPortionNew(){
 }
 
 //main1()
-databasesPortion();
+databasesPortionNew();
 function convertAndCopy(filename){
 
     console.log("Starting conversion ...");
