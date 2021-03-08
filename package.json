@@ -16,6 +16,7 @@
     "puppeteer": "^2.1.1",
     "ws": "^7.2.3",
     "xvfb": "^0.3.0",
-    "node-cron": ""
+    "node-cron": "",
+    "mysql": ""
   }
 }
