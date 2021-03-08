@@ -20,7 +20,8 @@ var totalRecMap = new Map;
 var con = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "admin"
+    password: "admin",
+    database: "record"
   });
 var xvfb        = new Xvfb({
     silent: true,
@@ -228,14 +229,6 @@ function databasesPortionNew(){
       con.connect(function(err) {
         if (err) throw err;
         console.log("Connected!");
-        con.query("CREATE DATABASE record", function (err, result) {
-            if (err){
-                console.log("failed to create "+err);
-                throw err;
-            }else{
-                console.log("Database created ");                
-            }
-          });
         var sql = "CREATE TABLE tbl_record (id VARCHAR(255), rec_id VARCHAR(255))";
         con.query(sql, function (err, result) {
               if (err){ 
