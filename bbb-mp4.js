@@ -205,34 +205,37 @@ function main1(){
       });
     
 }
-var con = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "admin"
-  });
-  
-  con.connect(function(err) {
-    if (err) throw err;
-    console.log("Connected!");
-    con.query("CREATE DATABASE record", function (err, result) {
-        if (err){
-            //console.log("failed to create "+err);
-            if(err.code=='ER_DB_CREATE_EXISTS'){
-                continue;
-            }
-            //throw err;
-        }else{
-            console.log("Database created ");
-        }
+function databasesPortion(){
+    var con = mysql.createConnection({
+        host: "localhost",
+        user: "root",
+        password: "admin"
       });
-    var sql = "CREATE TABLE tbl_record (id VARCHAR(255), rec_id VARCHAR(255))";
-    con.query(sql, function (err, result) {
-    if (err) throw err;
-        console.log("Table created");
-    });  
-  });
-//main1()
+      
+      con.connect(function(err) {
+        if (err) throw err;
+        console.log("Connected!");
+        con.query("CREATE DATABASE record", function (err, result) {
+            if (err){
+                //console.log("failed to create "+err);
+                if(err.code=='ER_DB_CREATE_EXISTS'){
+                    continue;
+                }
+                //throw err;
+            }else{
+                console.log("Database created ");
+            }
+          });
+        var sql = "CREATE TABLE tbl_record (id VARCHAR(255), rec_id VARCHAR(255))";
+        con.query(sql, function (err, result) {
+        if (err) throw err;
+            console.log("Table created");
+        });  
+      });
+}
 
+//main1()
+databasesPortion();
 function convertAndCopy(filename){
 
     console.log("Starting conversion ...");
