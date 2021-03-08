@@ -214,8 +214,12 @@ var con = mysql.createConnection({
   con.connect(function(err) {
     if (err) throw err;
     console.log("Connected!");
+    con.query("CREATE DATABASE record", function (err, result) {
+        if (err) throw err;
+        console.log("Database created "+err);
+      });
   });
-main1()
+//main1()
 
 function convertAndCopy(filename){
 
