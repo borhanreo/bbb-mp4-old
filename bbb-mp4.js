@@ -222,6 +222,11 @@ var con = mysql.createConnection({
             console.log("Database created ");
         }
       });
+    var sql = "CREATE TABLE tbl_record (id VARCHAR(255), rec_id VARCHAR(255))";
+    con.query(sql, function (err, result) {
+    if (err) throw err;
+        console.log("Table created");
+    });  
   });
 //main1()
 
