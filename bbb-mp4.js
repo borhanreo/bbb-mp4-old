@@ -189,7 +189,8 @@ function main1(){
         var interval = setInterval(function(){                         
             if(CurrentIdMap.get('currentId')==totalId-1){
                 clearInterval(interval); 
-                console.log('completed ');            
+                console.log('completed '); 
+                process.exit();          
             }else{   
                 //console.log(completedIdStatusMap['currentIdStatus']+'  '+completedIdMap)             
                 if(completedIdStatusMap.get('currentIdStatus')==true){
