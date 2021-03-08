@@ -159,7 +159,7 @@ async function main(id) {
     }
 }
 function updateValue(){        
-    databasesPortionInsert(totalRecMap.get(currentId), last_id);
+    databasesPortionInsert(totalRecMap.get(currentId), currentId);
 }
 function deleteMp4(id){
     try {
