@@ -111,7 +111,7 @@ async function main(id) {
     if(loadMsg == "Recording not found"){
         console.warn("Recording not found!");
         //process.exit(1);
-        updateValue();
+        updateValueWithout();
     }
 
     // Get recording duration
@@ -160,6 +160,11 @@ async function main(id) {
 }
 function updateValue(){        
     databasesPortionInsert(totalRecMap.get(currentId), currentId);
+}
+function updateValueWithout(){
+    CurrentIdMap.set('currentId', currentId);
+      completedIdStatusMap.set('currentIdStatus', true);
+      currentId++;
 }
 function deleteMp4(id){
     try {
@@ -227,7 +232,7 @@ function databasesPortionSelect(rec_id, activeId){
               console.log(result);
               if(result.length>0){
                   console.log('row has ');
-                  updateValue();
+                  updateValueWithout();
               }else{
                   console.log('row no');
                   main(totalRecMap.get(activeId));
