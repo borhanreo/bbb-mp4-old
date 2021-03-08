@@ -17,12 +17,18 @@ var completedIdMap = new Map;
 var completedIdStatusMap = new Map;
 var mysql = require('mysql');
 var totalRecMap = new Map;
-var con = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "admin",
-    database: "record"
-  });
+// var con = mysql.createConnection({
+//     host: "localhost",
+//     user: "root",
+//     password: "admin",
+//     database: "record"
+//   });
+var con  = mysql.createPool({
+    host            : 'localhost',
+    user            : 'root',
+    password        : 'admin',
+    database        : 'record'
+});
 var xvfb        = new Xvfb({
     silent: true,
     timeout: 5000,	
@@ -215,21 +221,19 @@ function main1(){
     
 }
 function databasesPortionSelect(rec_id, activeId){
-    con.connect(function(err) {
-        if (err) throw err;
+    con.getConnection(function (err, connection) {
         con.query("SELECT rec_id FROM tbl_record WHERE rec_id = '"+rec_id+"'", function (err, result) {
-          if (err) throw err;
-            console.log(result);
-            if(result.length>0){
-                console.log('row has ');
-                updateValue();
-            }else{
-                console.log('row no');
-                main(totalRecMap.get(activeId));
-            }
-        });
-      });
-      con.end()
+            if (err) throw err;
+              console.log(result);
+              if(result.length>0){
+                  console.log('row has ');
+                  updateValue();
+              }else{
+                  console.log('row no');
+                  main(totalRecMap.get(activeId));
+              }
+          });
+    });
 }
 function databasesPortionInsert(rec_id){
     con.connect(function(err) {
