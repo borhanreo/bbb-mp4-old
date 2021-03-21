@@ -190,13 +190,13 @@ function main1(){
     fs.readdir(recordingDir, (err, files) => {
         files.forEach(file => {
             if(file.length==54){
-                console.log('total ', file); 
+                //console.log('total ', file); 
                 totalRecMap.set(i,file);               
                 totalId++;
                 i++;
             }          
         });
-        console.log('total ', totalId);
+        console.log('total recording: ', totalId);
         //console.log('total ',totalRecMap.size+' '+ totalRecMap.get(1));
         var interval = setInterval(function(){                         
             if(CurrentIdMap.get('currentId')==totalId-1){
@@ -206,11 +206,11 @@ function main1(){
             }else{   
                 //console.log(completedIdStatusMap['currentIdStatus']+'  '+completedIdMap)             
                 if(completedIdStatusMap.get('currentIdStatus')==true){
-                    console.log('######### new start..'+totalRecMap.get(currentId+1)+ ' '+ totalRecMap.get(currentId)); 
+                    console.log('######### new start..'+totalRecMap.get(currentId)+ ' '+ totalRecMap.get(currentId)); 
                     runningIdCounter=1; 
                     completedIdStatusMap.set('currentIdStatus', false);
                     //main(totalRecMap.get(currentId+1));       
-                    databasesPortionSelect(totalRecMap.get(currentId),currentId+1);             
+                    databasesPortionSelect(totalRecMap.get(currentId),currentId);             
                 }else{
                     
                     if(runningIdCounter==0){
