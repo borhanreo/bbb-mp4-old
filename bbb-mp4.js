@@ -206,7 +206,7 @@ function main1(){
             }else{   
                 //console.log(completedIdStatusMap['currentIdStatus']+'  '+completedIdMap)             
                 if(completedIdStatusMap.get('currentIdStatus')==true){
-                    console.log('######### new start..'+totalRecMap.get(currentId)+ ' '+ totalRecMap.get(currentId)); 
+                    console.log('######### new start..'+totalRecMap.get(currentId)); 
                     runningIdCounter=1; 
                     completedIdStatusMap.set('currentIdStatus', false);
                     //main(totalRecMap.get(currentId+1));       
