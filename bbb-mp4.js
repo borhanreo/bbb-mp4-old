@@ -216,7 +216,7 @@ function main1(){
                     if(runningIdCounter==0){
                         databasesPortionSelect(totalRecMap.get(currentId),currentId);
                         //main(totalRecMap.get(currentId));
-                        //console.log('######## Start ..'+totalRecMap.get(currentId));                        
+                        console.log('######## Start ..'+totalRecMap.get(currentId));                        
                     }
                                                             
                     runningIdCounter++;
