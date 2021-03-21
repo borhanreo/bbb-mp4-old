@@ -266,11 +266,11 @@ function databasesPortionNew(){
           });            
       });
 }
-// cron.schedule("*/59 * * * * *", function() { 
-//     console.log("running a task every 59 second"); 
-//     main1();
-// }); 
-main1()
+cron.schedule("*/59 * * * * *", function() { 
+    console.log("running a task every 59 second"); 
+    main1();
+}); 
+//main1()
 //run
 //databasesPortionNew();
 function convertAndCopy(filename){
