@@ -209,13 +209,13 @@ function main1(){
                     console.log('######### new start..'+totalRecMap.get(currentId)); 
                     runningIdCounter=1; 
                     completedIdStatusMap.set('currentIdStatus', false);
-                    //main(totalRecMap.get(currentId+1));       
-                    databasesPortionSelect(totalRecMap.get(currentId),currentId);             
+                    main(totalRecMap.get(currentId+1));       
+                    //databasesPortionSelect(totalRecMap.get(currentId),currentId);             
                 }else{
                     
                     if(runningIdCounter==0){
-                        databasesPortionSelect(totalRecMap.get(currentId),currentId);
-                        //main(totalRecMap.get(currentId));
+                        //databasesPortionSelect(totalRecMap.get(currentId),currentId);
+                        main(totalRecMap.get(currentId));
                         console.log('######## Start ..'+totalRecMap.get(currentId));                        
                     }
                                                             
