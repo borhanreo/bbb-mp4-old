@@ -325,11 +325,11 @@ function convertAndCopy(filename){
             console.log("Convertion done to here: " + copyTo)
             fs.rmdirSync(copyFromPathForRecording, { recursive: true });		
             console.log('successfully deleted ' + copyFromPathForRecording);
-
-	    if(uploadMP4ToS3 == "true") {
-                //uploadToS3(copyTo);
-                updateValue();
-	    }
+            updateValue();
+            if(uploadMP4ToS3 == "true") {
+                    //uploadToS3(copyTo);
+                    updateValue();
+            }
         }
 
     });
