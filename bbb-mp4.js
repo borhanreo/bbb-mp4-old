@@ -210,11 +210,11 @@ function main1(){
                     runningIdCounter=1; 
                     completedIdStatusMap.set('currentIdStatus', false);
                     //main(totalRecMap.get(currentId+1));       
-                    //databasesPortionSelect(totalRecMap.get(currentId),currentId);             
+                    databasesPortionSelect(totalRecMap.get(currentId),currentId);             
                 }else{
                     
                     if(runningIdCounter==0){
-                        //databasesPortionSelect(totalRecMap.get(currentId),currentId);
+                        databasesPortionSelect(totalRecMap.get(currentId),currentId);
                         //main(totalRecMap.get(currentId));
                         console.log('######## Start ..'+totalRecMap.get(currentId));                        
                     }
@@ -323,7 +323,8 @@ function convertAndCopy(filename){
             console.log('successfully deleted ' + copyFromPathForRecording);
 
 	    if(uploadMP4ToS3 == "true") {
-                uploadToS3(copyTo);
+                //uploadToS3(copyTo);
+                updateValue();
 	    }
         }
 
