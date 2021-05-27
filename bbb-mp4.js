@@ -209,13 +209,13 @@ function main1(){
                     console.log('######### new start..'+totalRecMap.get(currentId)); 
                     runningIdCounter=1; 
                     completedIdStatusMap.set('currentIdStatus', false);
-                    main(totalRecMap.get(currentId+1));       
-                    //databasesPortionSelect(totalRecMap.get(currentId),currentId);             
+                    //main(totalRecMap.get(currentId+1));       
+                    databasesPortionSelect(totalRecMap.get(currentId),currentId);             
                 }else{
                     
                     if(runningIdCounter==0){
-                        //databasesPortionSelect(totalRecMap.get(currentId),currentId);
-                        main(totalRecMap.get(currentId));
+                        databasesPortionSelect(totalRecMap.get(currentId),currentId);
+                        //main(totalRecMap.get(currentId));
                         console.log('######## Start ..'+totalRecMap.get(currentId));                        
                     }
                                                             
@@ -227,19 +227,20 @@ function main1(){
     
 }
 function databasesPortionSelect(rec_id, activeId){
-    con.getConnection(function (err, connection) {
-        con.query("SELECT rec_id FROM tbl_record WHERE rec_id = '"+rec_id+"'", function (err, result) {
-            if (err) throw err;
-              console.log(result);
-              if(result.length>0){
-                  console.log('row has ');
-                  updateValueWithout();
-              }else{
-                  console.log('row no');
-                  main(totalRecMap.get(activeId));
-              }
-          });
-    });
+    // con.getConnection(function (err, connection) {
+    //     con.query("SELECT rec_id FROM tbl_record WHERE rec_id = '"+rec_id+"'", function (err, result) {
+    //         if (err) throw err;
+    //           console.log(result);
+    //           if(result.length>0){
+    //               console.log('row has ');
+    //               updateValueWithout();
+    //           }else{
+    //               console.log('row no');
+    //               main(totalRecMap.get(activeId));
+    //           }
+    //       });
+    // });
+    main(totalRecMap.get(activeId));
 }
 function databasesPortionInsert(rec_id,last_id){
     con.getConnection(function (err, connection) {
