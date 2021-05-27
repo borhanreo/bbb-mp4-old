@@ -160,7 +160,10 @@ async function main(id) {
     }
 }
 function updateValue(){        
-    databasesPortionInsert(totalRecMap.get(currentId), currentId);
+    //databasesPortionInsert(totalRecMap.get(currentId), currentId);
+    CurrentIdMap.set('currentId', currentId);
+      completedIdStatusMap.set('currentIdStatus', true);
+      currentId++;
 }
 function updateValueWithout(){
       CurrentIdMap.set('currentId', currentId);
