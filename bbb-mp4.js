@@ -193,7 +193,7 @@ function main1(){
     fs.readdir(recordingDir, (err, files) => {
         files.forEach(file => {
             if(file.length==54){
-                console.log('recording: '+totalId, file); 
+                //console.log('recording: '+totalId, file); 
                 totalRecMap.set(i,file);               
                 totalId++;
                 i++;
@@ -225,7 +225,7 @@ function main1(){
                     runningIdCounter++;
                 }
             }                                        
-        }, 1000);
+        }, 60000);
       });
     
 }
