@@ -190,13 +190,13 @@ function main1(){
     fs.readdir(recordingDir, (err, files) => {
         files.forEach(file => {
             if(file.length==54){
-                console.log('recording: '+totalId, file); 
+                //console.log('recording: '+totalId, file); 
                 totalRecMap.set(i,file);               
                 totalId++;
                 i++;
             }          
         });
-        console.log('total recording: ', totalId);
+        console.log('total recording: ', totalId+" of "+currentId);
         //console.log('total ',totalRecMap.size+' '+ totalRecMap.get(1));
         var interval = setInterval(function(){                         
             if(CurrentIdMap.get('currentId')==totalId-1){
@@ -222,7 +222,7 @@ function main1(){
                     runningIdCounter++;
                 }
             }                                        
-        }, 1000);
+        }, 60000);
       });
     
 }
